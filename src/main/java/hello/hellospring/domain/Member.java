@@ -1,8 +1,9 @@
 package hello.hellospring.domain;
 public class Member {
 
-    private Long id;
+    private Long id;  //시스템이 정해주는  id 기본값
     private String name;
+
     public Long getId() {
         return id;
     }

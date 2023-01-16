@@ -35,16 +35,28 @@ public class HelloController {
 
     }
 
+    //  @ResponseBody를 사용
+    // - HTTP의 BODY에 문자 내용을 직접 반환
+    // - 'viewResolver' 대신에 'HttpMessageConverter'가 동작
+    // - 기본 문자처리 : 'StringHttpMessageConverter'
+    // - 기본 객체처리 : 'MappingJackson2HttpMessageConverter'
+    // - byte 처리 등등 기타 여러 HttpMessageConverter가 기본으로 등록되어 있음
+
     //json 방식
     @GetMapping("hello-api")
     @ResponseBody
     public Hello helloApi(@RequestParam("name") String name) {
         Hello hello = new Hello();
         hello.setName(name);
-        return hello;
+        return hello; //객체를 던져줌 -> json 스타일로 변형
     }
+
+
+
     static class Hello {
-        private String name;
+
+        private String name; //private이기 때문에 외부에서 바로 못 꺼냄
+
         public String getName() {
             return name;
         }
