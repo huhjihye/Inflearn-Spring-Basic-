@@ -16,7 +16,7 @@ public class MemberController {
     private final MemberService memberService;
 
 
-    //위에 final 뺄 경우 사용
+    //위에 final 뺄 경우 사용.
 @Autowired
     public MemberController(MemberService memberService){
     this.memberService=memberService;
